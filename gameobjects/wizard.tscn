@@ -1,8 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://bibnbknjavu5"]
+[gd_scene load_steps=5 format=3 uid="uid://bibnbknjavu5"]
 
-[ext_resource type="Texture2D" uid="uid://c2nrjlqaipdh4" path="res://icon.svg" id="1_j375o"]
+[ext_resource type="Texture2D" uid="uid://sj7wxigk8tsm" path="res://assets/sprites/spr_magillo.png" id="1_j375o"]
+[ext_resource type="Texture2D" uid="uid://d376iplhs1y1a" path="res://assets/sprites/spr_fire_flame.png" id="2_aditm"]
+[ext_resource type="Shader" uid="uid://dj3jvhel50uke" path="res://shaders/mana_flow.gdshader" id="2_p2fqy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aditm"]
+shader = ExtResource("2_p2fqy")
+shader_parameter/frequency = Vector2(3, 0)
+shader_parameter/amplitude = Vector2(3, 0)
+shader_parameter/speed = Vector2(1, 0)
+shader_parameter/tex = ExtResource("2_aditm")
 
 [node name="Wizard" type="CharacterBody2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ShaderLayer" type="Sprite2D" parent="."]
+texture_repeat = 1
+material = SubResource("ShaderMaterial_aditm")
+position = Vector2(-8.500008, 16.000008)
+scale = Vector2(1.8828124, 4.3125)
+texture = ExtResource("2_aditm")
+region_rect = Rect2(0, 0, 130, 132)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_j375o")
